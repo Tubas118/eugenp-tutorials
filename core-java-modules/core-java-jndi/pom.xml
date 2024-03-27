@@ -13,7 +13,15 @@
     </parent>
 
     <dependencies>
-        <dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+	        <!-- IMPORTANT: This version of Log4j includes the vulnerability -->
+		    <version>${apache-log4j.version}</version>
+		</dependency>
+		
+		<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
@@ -70,9 +78,14 @@
     </build>
 
     <properties>
+		<java.version>11</java.version>
+
         <spring.version>5.0.9.RELEASE</spring.version>
         <apacheds.version>2.0.0.AM26</apacheds.version>
         <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+        
+        <!-- IMPORTANT: This version of Log4j includes the vulnerability -->
+        <apache-log4j.version>2.14.1</apache-log4j.version>
     </properties>
 
 </project>
